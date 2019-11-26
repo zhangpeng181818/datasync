@@ -1,0 +1,129 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "sqlserverreader",
+          "parameter": {
+            "column": [
+              "order_no",
+              "group_no",
+              "order_code",
+              "order_name",
+              "drug_name",
+              "patient_id",
+              "series",
+              "admission_id",
+              "ward_code",
+              "dept_code",
+              "drug_spec",
+              "frequency_code",
+              "frequency_name",
+              "dosage",
+              "dosage_unit",
+              "supply_code",
+              "supply_name",
+              "order_status",
+              "order_class",
+              "order_class_name",
+              "long_once_flag",
+              "high_risk",
+              "today_times",
+              "skin_test",
+              "is_aux",
+              "start_time",
+              "enter_time",
+              "doctor_name",
+              "stop_time",
+              "stop_doctor_id",
+              "stop_doctor_name",
+              "exhortation",
+              "remark",
+              "tzfbz",
+              "jpbz",
+              "review_time",
+              "High_risk_drugs",
+              "is_byj",
+              "zt"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=his"
+                ],
+                "table": [
+                  "v_ewell_inpatient_order"
+                ]
+              }
+            ],
+            "password": "Admin123.",
+            "username": "SA",
+            "where": "dept_code='311' and order_status = '在用' and  order_no > \\$max_order_no"
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "update",
+            "column": [
+              "order_no",
+              "group_no",
+              "order_code",
+              "order_name",
+              "drug_name",
+              "patient_id",
+              "series",
+              "admission_id",
+              "ward_code",
+              "dept_code",
+              "drug_spec",
+              "frequency_code",
+              "frequency_name",
+              "dosage",
+              "dosage_unit",
+              "supply_code",
+              "supply_name",
+              "order_status",
+              "order_class",
+              "order_class_name",
+              "long_once_flag",
+              "high_risk",
+              "today_times",
+              "skin_test",
+              "is_aux",
+              "start_time",
+              "enter_time",
+              "doctor_name",
+              "stop_time",
+              "stop_doctor_id",
+              "stop_doctor_name",
+              "exhortation",
+              "remark",
+              "tzfbz",
+              "jpbz",
+              "review_time",
+              "High_risk_drugs",
+              "is_byj",
+              "zt"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true",
+                "table": [
+                  "patient_order"
+                ]
+              }
+            ],
+            "username": "root",
+            "password": "123456"
+          }
+        }
+      }
+    ]
+  }
+}

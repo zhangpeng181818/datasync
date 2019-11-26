@@ -1,0 +1,115 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 16
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "sqlserverreader",
+          "parameter": {
+            "column": [
+              "NDate",
+              "SpecimenNo",
+              "PatIndex",
+              "PatExt1",
+              "PatName",
+              "PatAge",
+              "PatAgeUnit",
+              "PatSex",
+              "DepartmentIndex",
+              "DepartmentName",
+              "DepartmentHotkey",
+              "PatBed",
+              "Code",
+              "Name",
+              "AbbrName",
+              "Standard",
+              "IsUserInput",
+              "SpecimenIndex",
+              "SpecimenName",
+              "ReviewerIndex",
+              "ReviewerName",
+              "ReviewDate",
+              "ReviewTime",
+              "DocterIndex",
+              "doctorName",
+              "ReportIndex",
+              "ReportName",
+              "NValue",
+              "SValue",
+              "Units",
+              "Status",
+              "ReviewNotes"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=climis"
+                ],
+                "table": [
+                  "LIS_ITEM_Result"
+                ]
+              }
+            ],
+            "password": "SA",
+            "username": "Admin123.",
+            "where": "DepartmentIndex='311'"
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "update",
+            "column": [
+              "NDate",
+              "SpecimenNo",
+              "PatIndex",
+              "PatExt1",
+              "PatName",
+              "PatAge",
+              "PatAgeUnit",
+              "PatSex",
+              "DepartmentIndex",
+              "DepartmentName",
+              "DepartmentHotkey",
+              "PatBed",
+              "Code",
+              "Name",
+              "AbbrName",
+              "Standard",
+              "IsUserInput",
+              "SpecimenIndex",
+              "SpecimenName",
+              "ReviewerIndex",
+              "ReviewerName",
+              "ReviewDate",
+              "ReviewTime",
+              "DocterIndex",
+              "doctorName",
+              "ReportIndex",
+              "ReportName",
+              "NValue",
+              "SValue",
+              "Units",
+              "Status",
+              "ReviewNotes"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true",
+                "table": [
+                  "lis_item_result"
+                ]
+              }
+            ],
+            "username": "root",
+            "password": "123456"
+          }
+        }
+      }
+    ]
+  }
+}

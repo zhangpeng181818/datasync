@@ -1,0 +1,125 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 16
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "sqlserverreader",
+          "parameter": {
+            "column": [
+              "patient_id",
+              "series",
+              "admisstion_id",
+              "name",
+              "sex",
+              "dept_code",
+              "dept_name",
+              "ward_code",
+              "ward_name",
+              "bed_no",
+              "birthday",
+              "age",
+              "phone",
+              "address",
+              "professional",
+              "contact_info",
+              "weight",
+              "height",
+              "admission_time",
+              "admission_ward_time",
+              "discharge_time",
+              "diagnosis",
+              "nursing_class",
+              "patient_condition",
+              "charge_type",
+              "charge_type_name",
+              "total_cost",
+              "pre_payment",
+              "self_payment",
+              "balance",
+              "arrear_flag",
+              "diet",
+              "attndoctor",
+              "status",
+              "yeid",
+              "tjbz",
+              "gms"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=lsrmyy"
+                ],
+                "table": [
+                  "v_ewell_inpatient_info"
+                ]
+              }
+            ],
+            "password": "SA",
+            "username": "Admin123.",
+            "where": "dept_code='311' and ( discharge_time is null or discharge_time BETWEEN CONVERT(DATETIME,CONVERT(VARCHAR(10),GETDATE(),120)) AND DATEADD(SS,-1,DATEADD(DD,1,CONVERT(DATETIME,CONVERT(VARCHAR(10),GETDATE(),120)))))"
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "update",
+            "column": [
+              "patient_id",
+              "series",
+              "admisstion_id",
+              "name",
+              "sex",
+              "dept_code",
+              "dept_name",
+              "ward_code",
+              "ward_name",
+              "bed_no",
+              "birthday",
+              "age",
+              "phone",
+              "address",
+              "professional",
+              "contact_info",
+              "weight",
+              "height",
+              "admission_time",
+              "admission_ward_time",
+              "discharge_time",
+              "diagnosis",
+              "nursing_class",
+              "patient_condition",
+              "charge_type",
+              "charge_type_name",
+              "total_cost",
+              "pre_payment",
+              "self_payment",
+              "balance",
+              "arrear_flag",
+              "diet",
+              "attndoctor",
+              "status",
+              "yeid",
+              "tjbz",
+              "gms"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true",
+                "table": [
+                  "inpatient_info"
+                ]
+              }
+            ],
+            "username": "root",
+            "password": "123456"
+          }
+        }
+      }
+    ]
+  }
+}

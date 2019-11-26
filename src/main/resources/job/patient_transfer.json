@@ -1,0 +1,73 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 16
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "sqlserverreader",
+          "parameter": {
+            "column": [
+              "patient_id",
+              "series",
+              "mrn",
+              "turn_in_dept_code",
+              "turn_in_ward_code",
+              "turn_in_bed_no",
+              "turn_in_time",
+              "turn_out_dept_code",
+              "turn_out_ward_code",
+              "turn_out_bed_no",
+              "turn_out_time"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=lsrmyy"
+                ],
+                "table": [
+                  "v_ewell_inpatient_transfer"
+                ]
+              }
+            ],
+            "password": "SA",
+            "username": "Admin123.",
+            "where": "turn_out_dept_code='311' and ( turn_out_time BETWEEN CONVERT(DATETIME,CONVERT(VARCHAR(10),GETDATE(),120)) AND DATEADD(SS,-1,DATEADD(DD,1,CONVERT(DATETIME,CONVERT(VARCHAR(10),GETDATE(),120)))))"
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "update",
+            "column": [
+              "patient_id",
+              "series",
+              "mrn",
+              "turn_in_dept_code",
+              "turn_in_ward_code",
+              "turn_in_bed_no",
+              "turn_in_time",
+              "turn_out_dept_code",
+              "turn_out_ward_code",
+              "turn_out_bed_no",
+              "turn_out_time"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true",
+                "table": [
+                  "inpatient_transfer"
+                ]
+              }
+            ],
+            "username": "root",
+            "password": "123456"
+          }
+        }
+      }
+    ]
+  }
+}
